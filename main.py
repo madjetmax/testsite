@@ -1,6 +1,6 @@
 import fastapi
 from fastapi import Response
-import uvicorn
+import uvicorn, os
 
 
 
@@ -16,6 +16,6 @@ async def main_page(response: Response):
 
 if __name__ == "__main__":
     try:
-        uvicorn.run(app, host="127.0.0.1", port=8080)
+        uvicorn.run(app, host="127.0.0.1", port=os.environ.get("PORT"))
     except KeyboardInterrupt:
         print("stoped!")
